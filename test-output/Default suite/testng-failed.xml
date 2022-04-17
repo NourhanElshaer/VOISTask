@@ -5,7 +5,6 @@
     <classes>
       <class name="tests.SearchYoutube">
         <methods>
-          <include name="searchYoutube" invocation-numbers="0 1"/>
           <include name="searchTenthVideo"/>
           <include name="stopDriver"/>
           <include name="setup"/>

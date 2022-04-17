@@ -32,7 +32,7 @@ public class TestBase
 	public void stopDriver() throws InterruptedException 
 	{		
 		LocalDriverManager.getDriver().quit();
-		Thread.sleep(1000);
+//		Thread.sleep(2000);
 
 	}
 

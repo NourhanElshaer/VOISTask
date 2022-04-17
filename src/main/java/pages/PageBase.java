@@ -46,11 +46,17 @@ public class PageBase {
 	    action.click().perform();
 	}
 	
-	protected static String getTextOfElement(WebElement element) 
+	 String getTextOfElement(WebElement element) 
 	{
 		String	textValue=element.getAttribute("innerHTML");
 		return textValue;
 	}
 	
+		 String getTextOfElement2(WebElement element) 
+		{
+			String	textValue=element.getAttribute("innerHTML");
+			return textValue;
+		}
+		
 
 }

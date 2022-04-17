@@ -35,7 +35,7 @@ public class SearchYoutube extends  TestBase {
 //		String searchValue="Selenium Tutorial";
 		homeObject = new HomePage(LocalDriverManager.getDriver()); 
 		SearchResultObject = new SearchResultPage(LocalDriverManager.getDriver()); 
-		LocalDriverManager.getDriver().manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS) ;
+		LocalDriverManager.getDriver().manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS) ;
 		homeObject.searchBy(searchValue);
 		homeObject.clickSearch();
 		homeObject.clickFiltersBtn();
@@ -53,7 +53,7 @@ public class SearchYoutube extends  TestBase {
 		System.out.println("titleBefor:"+ videoTitle);
 		System.out.println("titleAfter:"+ videoTitleAfterOpeningVideo);
 		Assert.assertEquals(videoTitle, videoTitleAfterOpeningVideo);
-	}
+}
 	
 	
 	@Test(priority = 1)
@@ -74,15 +74,19 @@ public class SearchYoutube extends  TestBase {
 		homeObject.scrollDown_10();
 		String videoTitle=homeObject.getVideoTitle_10();
 		homeObject.waitUntilVideoFiltersButtonNotVisible(wait);
+		LocalDriverManager.getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS) ;
 		homeObject.playVideo_10();
 		homeObject.waitUntilFiltersButtonNotVisible(wait);
 		LocalDriverManager.getDriver().manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS) ;
-		Thread.sleep(2000);
-		String videoTitleAfterOpeningVideo=SearchResultObject.getVideoTitleAfterPlayingVideo();
+
+		SearchResultObject.waitUntilFiltersButtonNotVisible(wait);
+
 		System.out.println("titleBefor:"+ videoTitle);
-		System.out.println("titleAfter:"+ videoTitleAfterOpeningVideo);
-		Assert.assertEquals(videoTitle, videoTitleAfterOpeningVideo);
-//
+			String videoTitleAfterOpeningVideo=SearchResultObject.getVideoTitleAfterPlayingVideo();
+
+//		System.out.println("titleAfter:"+ SearchResultObject.getVideoTitleAfterPlayingVideo());
+//		System.out.println("last" + SearchResultObject.getVideoTitleAfterPlayingVideo2());
+				Assert.assertEquals(videoTitle, videoTitleAfterOpeningVideo);
 	}
 	
 
