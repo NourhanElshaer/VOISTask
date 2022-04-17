@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="methods" name="Failed suite [Regression Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="methods" name="Regression 1(failed)">
+    <classes>
+      <class name="tests.SearchYoutube">
+        <methods>
+          <include name="searchYoutube" invocation-numbers="0"/>
+          <include name="searchTenthVideo"/>
+          <include name="stopDriver"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.SearchYoutube -->
+    </classes>
+  </test> <!-- Regression 1(failed) -->
+</suite> <!-- Failed suite [Regression Test Suite] -->
